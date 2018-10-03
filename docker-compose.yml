@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  php:
+    # image: php:7.0-apache
+    build: ./build
+    # container_name: my_php
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+    volumes:
+      - ./html:/var/www/html
