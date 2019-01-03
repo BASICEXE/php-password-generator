@@ -15,17 +15,17 @@
     $randStr = 9;
     $strNum = 3;
     $fukuzatu = false;
-    if ($_REQUEST['make'] == true) {
-        if (!empty($_POST['number'])) {
+    if (empty($_REQUEST['make'])) {
+        if (empty($_POST['number'])) {
             $number = (int)$_POST['number'];
             if ($number > 40) {
                 $number = 40;
             }
         }
-        if($_POST['complexity'] == 'strong'){
+        if(!empty($_POST['complexity']) && $_POST['complexity'] == 'strong'){
             $randStr = 12;
             $strNum = 4;
-        }elseif($_POST['complexity'] == 'complexity'){
+        }elseif(!empty($_POST['complexity']) && $_POST['complexity'] == 'complexity'){
             $randStr = 16;
             $fukuzatu = true;
         }
